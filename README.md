@@ -43,6 +43,29 @@ uv venv -p 3.12 .venv && uv pip install --python .venv/bin/python -e ".[dev]"
 .venv/bin/streamlit run app.py --server.port 8517
 ```
 
+## Dados de entrada
+
+O painel aceita upload na barra lateral (e oferece modelos para baixar):
+
+- **Cenários — CSV**, uma linha por cenário: `id, descricao, uso_criptografico, algoritmo_alvo,
+  sigilo_anos, migracao_anos, sensibilidade, exposicao, criticidade, complexidade, custo_bytes`.
+  Notas de 1 a 5; anos e bytes não negativos; `id` único.
+- **Especialistas — JSON**: `{"criterios": [...6 critérios na ordem acima...], "matrizes":
+  {"E1": [[0, 2, ...], ...], ...}}`, uma matriz 6×6 antissimétrica em −3..+3 por especialista.
+
+Entrada inválida é recusada com a lista de erros. Sem upload, usa `dados/cenarios.csv` e
+`dados/especialistas.json`.
+
+### Conjuntos de teste
+
+```bash
+.venv/bin/python gerar_dados.py --n 30 --seed 1    # dados/exemplos/cenarios_30.csv
+.venv/bin/python gerar_dados.py --n 100 --seed 2   # dados/exemplos/cenarios_100.csv
+```
+
+`dados/exemplos/` também traz `cenarios_invalido.csv` (id repetido, nota 7, ano negativo) e
+`especialistas_divergentes.json` (painel que privilegia viabilidade em vez de exposição).
+
 ## Limitações conhecidas
 
 - A destilação do ELECTRE III segue Roy (1978) e Figueira, Mousseau e Roy (2005), e a matriz de
@@ -52,4 +75,4 @@ uv venv -p 3.12 .venv && uv pip install --python .venv/bin/python -e ".[dev]"
   Moreira (2020).
 - Limiares (q, p, v) são ilustrativos; na dissertação serão calibrados e submetidos a análise
   de sensibilidade.
-- Ainda sem: medição liboqs, gerador de 100–200 cenários, relatórios PDF/XLSX.
+- Ainda sem: medição liboqs, relatórios PDF/XLSX. O gerador de cenários é simples (faixas uniformes por tipo de uso).

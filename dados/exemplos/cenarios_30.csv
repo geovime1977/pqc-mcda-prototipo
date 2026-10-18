@@ -1,0 +1,31 @@
+id,descricao,uso_criptografico,algoritmo_alvo,sigilo_anos,migracao_anos,sensibilidade,exposicao,criticidade,complexidade,custo_bytes
+S001,assinatura de firmware #1,assinatura de firmware,SLH-DSA-SHA2-128s,3,9,4,2,4,5,7888
+S002,telemetria/IoT #2,telemetria/IoT,ML-KEM-768,0,4,2,4,1,4,2272
+S003,sessão TLS de aplicação #3,sessão TLS de aplicação,ML-KEM-768,5,3,3,4,1,3,2272
+S004,mensageria assinada #4,mensageria assinada,ML-KEM-768 + ML-DSA-65,14,4,4,3,3,4,4397
+S005,enlace VPN/IPsec #5,enlace VPN/IPsec,ML-KEM-768,16,3,4,5,4,4,2272
+S006,assinatura de firmware #6,assinatura de firmware,SLH-DSA-SHA2-128s,5,6,3,2,4,5,7888
+S007,enlace VPN/IPsec #7,enlace VPN/IPsec,ML-KEM-768,15,5,4,4,5,5,2272
+S008,telemetria/IoT #8,telemetria/IoT,ML-KEM-768,0,7,1,4,3,2,2272
+S009,armazenamento cifrado #9,armazenamento cifrado,ML-KEM-768,24,3,5,2,3,1,1088
+S010,enlace VPN/IPsec #10,enlace VPN/IPsec,ML-KEM-768,18,6,4,5,4,4,2272
+S011,mensageria assinada #11,mensageria assinada,ML-KEM-768 + ML-DSA-65,15,3,2,5,3,4,4397
+S012,assinatura de firmware #12,assinatura de firmware,SLH-DSA-SHA2-128s,2,5,3,3,5,5,7888
+S013,rádio/cifrador embarcado #13,rádio/cifrador embarcado,ML-KEM-768,24,11,4,4,5,5,2272
+S014,certificação digital (PKI) #14,certificação digital (PKI),ML-DSA-65,15,6,5,4,4,4,5261
+S015,certificação digital (PKI) #15,certificação digital (PKI),ML-DSA-65,18,4,5,4,5,5,5261
+S016,rádio/cifrador embarcado #16,rádio/cifrador embarcado,ML-KEM-768,23,11,4,3,4,4,2272
+S017,rádio/cifrador embarcado #17,rádio/cifrador embarcado,ML-KEM-768,28,11,5,5,5,4,2272
+S018,assinatura de firmware #18,assinatura de firmware,SLH-DSA-SHA2-128s,4,6,4,2,5,4,7888
+S019,sessão TLS de aplicação #19,sessão TLS de aplicação,ML-KEM-768,8,2,4,5,2,2,2272
+S020,rádio/cifrador embarcado #20,rádio/cifrador embarcado,ML-KEM-768,26,10,5,5,5,5,2272
+S021,telemetria/IoT #21,telemetria/IoT,ML-KEM-768,0,3,1,4,3,4,2272
+S022,assinatura de firmware #22,assinatura de firmware,SLH-DSA-SHA2-128s,3,8,4,2,4,5,7888
+S023,assinatura de firmware #23,assinatura de firmware,SLH-DSA-SHA2-128s,5,10,4,3,5,3,7888
+S024,armazenamento cifrado #24,armazenamento cifrado,ML-KEM-768,28,2,5,3,4,1,1088
+S025,mensageria assinada #25,mensageria assinada,ML-KEM-768 + ML-DSA-65,14,3,2,5,4,3,4397
+S026,rádio/cifrador embarcado #26,rádio/cifrador embarcado,ML-KEM-768,17,9,5,3,4,5,2272
+S027,armazenamento cifrado #27,armazenamento cifrado,ML-KEM-768,25,4,4,2,2,2,1088
+S028,sessão TLS de aplicação #28,sessão TLS de aplicação,ML-KEM-768,6,2,3,4,2,2,2272
+S029,mensageria assinada #29,mensageria assinada,ML-KEM-768 + ML-DSA-65,9,2,4,4,3,2,4397
+S030,assinatura de firmware #30,assinatura de firmware,SLH-DSA-SHA2-128s,5,10,2,3,4,5,7888

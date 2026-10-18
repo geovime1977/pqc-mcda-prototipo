@@ -16,9 +16,21 @@ with st.sidebar:
     z = st.slider("Horizonte da ameaça z (anos)", 3, 30, 12)
     v = st.slider("Veto da margem de Mosca v (anos)", 4, 30,
                   int(LIMIARES_PADRAO["margem_mosca"]["v"]))
-    arquivo = st.file_uploader("Trocar cenários (CSV)", type="csv")
+    st.header("Dados de entrada")
+    arquivo = st.file_uploader("Cenários (CSV)", type="csv")
     if arquivo:
         cen = pd.read_csv(arquivo)
+    arq_esp = st.file_uploader("Especialistas (JSON)", type="json")
+    if arq_esp:
+        try:
+            esp = json.load(arq_esp)
+        except json.JSONDecodeError as e:
+            st.error(f"JSON inválido: {e}")
+            st.stop()
+    st.download_button("Modelo de cenários (CSV)", cen.head(3).to_csv(index=False),
+                       file_name="modelo_cenarios.csv", mime="text/csv")
+    st.download_button("Modelo de especialistas (JSON)", json.dumps(esp, ensure_ascii=False, indent=1),
+                       file_name="modelo_especialistas.json", mime="application/json")
 
 try:
     lim = {"margem_mosca": {**LIMIARES_PADRAO["margem_mosca"], "v": float(v)}}

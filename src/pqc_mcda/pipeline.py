@@ -61,6 +61,8 @@ def validar(cen: pd.DataFrame, esp: dict) -> list[str]:
             erros.append(f"{c} fora da escala 1-5 em {fora['id'].tolist()}")
     if (cen[["sigilo_anos", "migracao_anos", "custo_bytes"]] < 0).any().any():
         erros.append("valores negativos em anos ou bytes")
+    if not isinstance(esp.get("matrizes"), dict) or not esp["matrizes"]:
+        erros.append("especialistas.json sem o bloco 'matrizes'")
     if esp.get("criterios") != list(CRITERIOS):
         erros.append(f"especialistas.json deve listar os critérios na ordem {list(CRITERIOS)}")
     return erros
