@@ -5,3 +5,5 @@ __pycache__/
 auditoria/*.jsonl
 saida/
 .DS_Store
+CLAUDE.md
+*.egg-info/

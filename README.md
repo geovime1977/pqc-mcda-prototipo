@@ -34,6 +34,8 @@ priorizar a migração para criptografia pós-quântica como problema de decisã
 ML-DSA-65: 1952 + 3309 B; SLH-DSA-SHA2-128s: 32 + 7856 B). Na dissertação serão
 substituídos por medições com a liboqs.
 
+Tutorial completo (o que é, por que, como usar e como ler o resultado): [docs/TUTORIAL.md](docs/TUTORIAL.md).
+
 ## Como rodar
 
 ```bash
@@ -75,4 +77,4 @@ Entrada inválida é recusada com a lista de erros. Sem upload, usa `dados/cenar
   Moreira (2020).
 - Limiares (q, p, v) são ilustrativos; na dissertação serão calibrados e submetidos a análise
   de sensibilidade.
-- Ainda sem: medição liboqs, relatórios PDF/XLSX. O gerador de cenários é simples (faixas uniformes por tipo de uso).
+- Ainda sem medição com a liboqs. O gerador de cenários é simples (faixas uniformes por tipo de uso).
