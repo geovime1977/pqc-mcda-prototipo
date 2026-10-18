@@ -1,0 +1,12 @@
+pyproject.toml
+src/pqc_mcda/__init__.py
+src/pqc_mcda/electre.py
+src/pqc_mcda/pipeline.py
+src/pqc_mcda/sapevo.py
+src/pqc_mcda/soma_ponderada.py
+src/pqc_mcda_prototipo.egg-info/PKG-INFO
+src/pqc_mcda_prototipo.egg-info/SOURCES.txt
+src/pqc_mcda_prototipo.egg-info/dependency_links.txt
+src/pqc_mcda_prototipo.egg-info/requires.txt
+src/pqc_mcda_prototipo.egg-info/top_level.txt
+tests/test_prototipo.py

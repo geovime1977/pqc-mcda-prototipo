@@ -1,0 +1,11 @@
+id,descricao,uso_criptografico,algoritmo_alvo,sigilo_anos,migracao_anos,sensibilidade,exposicao,criticidade,complexidade,custo_bytes
+S01,VPN entre postos de comando,troca de chaves,ML-KEM-768,25,6,5,5,5,4,2272
+S02,Rádio tático com cifrador embarcado,troca de chaves (raiz em hardware),ML-KEM-768,20,10,5,4,5,5,2272
+S03,Assinatura de atualização de firmware,assinatura,SLH-DSA-SHA2-128s,2,8,3,3,5,4,7888
+S04,Portal administrativo web (TLS),troca de chaves,ML-KEM-768,3,2,2,5,2,1,2272
+S05,Arquivo histórico cifrado,armazenamento,ML-KEM-768,50,3,5,2,3,2,1088
+S06,E-mail corporativo (S/MIME),troca de chaves e assinatura,ML-KEM-768 + ML-DSA-65,10,4,3,4,3,3,4397
+S07,PKI interna (AC raiz),assinatura,ML-DSA-65,15,7,4,3,5,5,5261
+S08,Telemetria de sensores,troca de chaves,ML-KEM-768,1,5,1,4,2,3,2272
+S09,Banco de dados de pessoal,armazenamento,ML-KEM-768,30,4,4,3,3,2,1088
+S10,Videoconferência,troca de chaves,ML-KEM-768,5,2,3,5,2,2,2272

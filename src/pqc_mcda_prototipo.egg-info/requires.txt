@@ -1,0 +1,6 @@
+numpy>=1.26
+pandas>=2.2
+streamlit>=1.38
+
+[dev]
+pytest>=8
