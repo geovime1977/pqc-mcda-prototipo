@@ -76,7 +76,7 @@ O painel abre no navegador em http://localhost:8517.
 ## 7. Passo a passo no painel
 
 1. **Dados de entrada** (barra lateral). Envie um CSV de cenários e, se quiser, um JSON de especialistas. Sem envio, o painel usa os 10 cenários de exemplo. Os arquivos de teste estão em `dados/exemplos/`.
-2. **Parâmetros.** Ajuste z (horizonte da ameaça), v (veto da margem de Mosca) e a faixa de z para a sensibilidade.
+2. **Parâmetros.** Ajuste z (horizonte da ameaça), v (veto da margem de Mosca) e a faixa de z para a sensibilidade. Os demais limiares do ELECTRE III, indiferença (q) e preferência (p) de cada critério, ficam fixos em `LIMIARES_PADRAO` (`src/pqc_mcda/pipeline.py`) e aparecem na aba *Auditoria*. Para a margem de Mosca, q = 1 e p = 3 anos; para as notas de 1 a 5, q = 0 e p = 1; para o custo em bytes, q = 500 e p = 2000.
 3. **Executar.** Clique em **Executar análise**. Se mudar dados ou parâmetros depois, o painel avisa que é preciso executar de novo.
 4. **Resultados**, em cinco abas:
    - *Resumo*: leitura em linguagem simples e os botões de relatório (PDF, planilha e JSON).
@@ -101,7 +101,27 @@ id,descricao,uso_criptografico,algoritmo_alvo,sigilo_anos,migracao_anos,sensibil
 S01,VPN entre postos de comando,troca de chaves,ML-KEM-768,25,6,5,5,5,4,2272
 ```
 
-**Especialistas (JSON)**, uma matriz 6 × 6 por especialista, na ordem dos critérios da seção 5. A matriz é antissimétrica: se a linha i, coluna j vale +2, a linha j, coluna i vale −2.
+**Especialistas (JSON)**, uma matriz 6 × 6 por especialista, na ordem dos critérios da seção 5. A matriz é antissimétrica: se a linha i, coluna j vale +2, a linha j, coluna i vale −2. Os valores vão de −3 a +3; positivo significa que o critério da linha é mais importante que o da coluna. Trecho de `dados/especialistas.json`:
+
+```
+{
+  "descricao": "Três especialistas SINTÉTICOS.",
+  "criterios": ["margem_mosca", "sensibilidade", "exposicao",
+                "criticidade", "complexidade", "custo_bytes"],
+  "matrizes": {
+    "E1_criptografia": [
+      [ 0,  1,  1,  2,  2,  2],
+      [-1,  0,  0,  0,  1,  2],
+      [-1,  0,  0,  0,  1,  2],
+      [-2,  0,  0,  0,  0,  1],
+      [-2, -1, -1,  0,  0,  0],
+      [-2, -2, -2, -1,  0,  0]
+    ]
+  }
+}
+```
+
+Cada especialista é uma nova chave em `matrizes`. Neste exemplo, a margem de Mosca (linha 1) vem à frente de todos os outros critérios.
 
 O painel recusa arquivos inválidos e lista os erros (id repetido, nota fora de 1 a 5, valor negativo, matriz fora do padrão).
 
